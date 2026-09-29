@@ -52,7 +52,7 @@ function schedFor(d){
   h+=`<div class="sched-block"><h3>${T('Poli Gigi','Dental Clinic')}</h3>${s.gigi.map(x=>row(x[0],x[1])).join('')}</div>`;
   h+=`<div class="sched-block"><h3>${T('Poli KIA (Bidan)','Maternal & Child Health (Midwife)')}</h3>${row('Bidan Tittin Widya Astuti, A.Md.Keb.','13.00–16.30')}</div>`;
   const VT=T('Vaksinasi internasional','International vaccination');
-  if(TELE_DAYS.includes(d)) h+=`<div class="sched-block"><h3>${VT} & ${T('Telemedicine BPJS','BPJS telemedicine')}</h3>${row('dr. Rio Alexander','08.00–14.00',T('Setelah 14.00, vaksinasi dilayani dokter vaksinator yang bertugas.','After 14.00, vaccination is handled by the vaccinating doctor on duty.'))}</div>`;
+  if(TELE_DAYS.includes(d)) h+=`<div class="sched-block"><h3>${VT} & ${T('Telekonsultasi BPJS','BPJS teleconsultation')}</h3>${row('dr. Rio Alexander','08.00–14.00',T('Setelah 14.00, vaksinasi dilayani dokter vaksinator yang bertugas.','After 14.00, vaccination is handled by the vaccinating doctor on duty.'))}</div>`;
   else if(d===3) h+=`<div class="sched-block"><h3>${VT}</h3>${row('dr. Rio Alexander','08.00–20.00',T('Sekaligus praktik Poli Umum','Also on General Clinic duty'))}</div>`;
   else h+=`<div class="sched-block"><h3>${VT}</h3><p class="fine">${T('Dilayani dokter vaksinator yang bertugas, 08.00–20.00.','Handled by the vaccinating doctor on duty, 08.00–20.00.')}</p></div>`;
   return h+`</div>`;
@@ -156,7 +156,7 @@ P.suratsakit=()=>`<h1>${T('Surat Keterangan Sakit','Sick Leave Letter')}</h1>
 <div class="card"><h2>${T('Ketentuan','Rules')}</h2>${ul([
  T('Istirahat maksimal <b>3 hari</b>.','Maximum rest of <b>3 days</b>.'),
  T('Tidak dapat dibuat mundur tanggalnya.','Cannot be backdated.'),
- T('Tidak diterbitkan melalui telemedicine. Pasien yang cukup ditangani lewat telemedicine berarti sakitnya ringan.','Not issued through telemedicine. If telemedicine is enough, the illness is considered mild.'),
+ T('Tidak diterbitkan melalui telekonsultasi. Pasien yang cukup ditangani lewat telekonsultasi berarti sakitnya ringan.','Not issued through teleconsultation. If teleconsultation is enough, the illness is considered mild.'),
  T('Tidak ada biaya tambahan khusus untuk surat sakit.','There is no extra charge for the letter itself.')])}</div>
 <div class="note"><b>${T('Butuh surat keterangan sehat?','Need a health certificate?')}</b><p>${T('Surat keterangan sehat diterbitkan melalui medical check-up (layanan pribadi).','Health certificates are issued through a medical check-up (self-pay service).')} <a href="#umum-mcu">${T('Lihat medical check-up','See medical check-up')}</a></p></div>`;
 
@@ -260,21 +260,21 @@ ${steps([
 <div class="note gold"><b>${T('Status BPJS tidak aktif atau terdaftar di faskes lain?','BPJS inactive or registered at another clinic?')}</b><p>${T('Anda tetap dilayani, tetapi dengan pembayaran pribadi.','You will still be seen, but as a self-pay patient.')} <a href="#umum">${T('Lihat info pasien pribadi','See self-pay information')}</a></p></div>
 ${rel(['tele','gigi','suratsakit','jadwal'])}`},
 
- {id:'tele',ic:'phone',t:()=>T('Telemedicine Mobile JKN','Mobile JKN Telemedicine'),d:()=>T('Untuk keluhan ringan, tanpa antre','For mild complaints, no queue'),r:()=>`<h1>${T('Telemedicine Mobile JKN','Mobile JKN Telemedicine')}</h1>
-<p>${T('Poli Umum BPJS tidak dibatasi jumlah pasiennya. Untuk keluhan ringan, pasien diarahkan berkonsultasi lewat telemedicine di aplikasi Mobile JKN sehingga tidak perlu mengantre di klinik.','There is no daily limit for the BPJS General Clinic. For mild complaints, patients are directed to telemedicine in the Mobile JKN app so they do not need to queue.')}</p>
+ {id:'tele',ic:'phone',t:()=>T('Telekonsultasi Mobile JKN','Mobile JKN Teleconsultation'),d:()=>T('Untuk keluhan ringan, tanpa antre','For mild complaints, no queue'),r:()=>`<h1>${T('Telekonsultasi Mobile JKN','Mobile JKN Teleconsultation')}</h1>
+<p>${T('Poli Umum BPJS tidak dibatasi jumlah pasiennya. Untuk keluhan ringan, pasien diarahkan berkonsultasi lewat telekonsultasi di aplikasi Mobile JKN sehingga tidak perlu mengantre di klinik.','There is no daily limit for the BPJS General Clinic. For mild complaints, patients are directed to teleconsultation in the Mobile JKN app so they do not need to queue.')}</p>
 <div class="stat"><div><b>${T('Sen, Sel, Kam, Jum','Mon, Tue, Thu, Fri')}</b><span>08.00–14.00 WIB · dr. Rio Alexander</span></div></div>
-<div class="card"><h2>${T('Keluhan yang diarahkan ke telemedicine','Complaints suited to telemedicine')}</h2>${ul([
+<div class="card"><h2>${T('Keluhan yang diarahkan ke telekonsultasi','Complaints suited to teleconsultation')}</h2>${ul([
  T('Batuk atau pilek ringan, kurang dari 1 minggu','Mild cough or cold, less than 1 week'),
  T('Mual, muntah, diare, atau nyeri perut ringan, kurang dari 3 hari','Mild nausea, vomiting, diarrhoea or stomach ache, less than 3 days')])}
-<p class="fine">${T('Dokter akan menilai kondisi Anda saat konsultasi dan menentukan apakah cukup lewat telemedicine atau perlu diperiksa langsung.','The doctor assesses you during the consultation and decides whether telemedicine is enough or you need an in-person exam.')}</p></div>
+<p class="fine">${T('Dokter akan menilai kondisi Anda saat konsultasi dan menentukan apakah cukup lewat telekonsultasi atau perlu diperiksa langsung.','The doctor assesses you during the consultation and decides whether teleconsultation is enough or you need an in-person exam.')}</p></div>
 <h2>${T('Setelah konsultasi','After the consultation')}</h2>
 ${steps([
  [T('Jika sakit ringan: resep diberikan','If mild: you receive a prescription'),T('Resep muncul di aplikasi Mobile JKN.','The prescription appears in the Mobile JKN app.')],
  [T('Ambil obat di farmasi klinik','Collect medicine at the clinic pharmacy'),T('Tunjukkan resep di aplikasi ke bagian farmasi, lalu tunggu dipanggil setelah obat selesai disiapkan.','Show the prescription in the app to the pharmacy, then wait to be called when it is ready.')],
  [T('Jika sakit sedang/berat','If moderate or severe'),T('Anda akan diminta datang untuk diperiksa langsung di klinik mengikuti alur berobat BPJS.','You will be asked to come in for an in-person exam following the BPJS visit steps.')]
 ])}
-<div class="note"><b>${T('Di luar jadwal telemedicine','Outside telemedicine hours')}</b><p>${T('Telemedicine tidak tersedia. Silakan berobat langsung ke klinik, meskipun sakit ringan.','Telemedicine is not available. Please visit the clinic in person, even for mild illness.')}</p></div>
-<div class="note"><b>${T('Surat sakit','Sick leave letter')}</b><p>${T('Tidak diterbitkan melalui telemedicine.','Not issued through telemedicine.')}</p></div>
+<div class="note"><b>${T('Di luar jadwal telekonsultasi','Outside teleconsultation hours')}</b><p>${T('Telekonsultasi tidak tersedia. Silakan berobat langsung ke klinik, meskipun sakit ringan.','Teleconsultation is not available. Please visit the clinic in person, even for mild illness.')}</p></div>
+<div class="note"><b>${T('Surat sakit','Sick leave letter')}</b><p>${T('Tidak diterbitkan melalui telekonsultasi.','Not issued through teleconsultation.')}</p></div>
 ${rel(['alur','suratsakit'])}`},
 
  {id:'gigi',ic:'tooth',t:()=>T('Poli Gigi BPJS','BPJS Dental Clinic'),d:()=>T('Kuota 10 pasien per hari','10 patients per day'),r:()=>`<h1>${T('Poli Gigi BPJS','BPJS Dental Clinic')}</h1>
