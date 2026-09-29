@@ -52,9 +52,9 @@ function schedFor(d){
   h+=`<div class="sched-block"><h3>${T('Poli Gigi','Dental Clinic')}</h3>${s.gigi.map(x=>row(x[0],x[1])).join('')}</div>`;
   h+=`<div class="sched-block"><h3>${T('Poli KIA (Bidan)','Maternal & Child Health (Midwife)')}</h3>${row('Bidan Tittin Widya Astuti, A.Md.Keb.','13.00–16.30')}</div>`;
   const VT=T('Vaksinasi internasional','International vaccination');
-  if(TELE_DAYS.includes(d)) h+=`<div class="sched-block"><h3>${VT} & ${T('Telemedicine BPJS','BPJS telemedicine')}</h3>${row('dr. Rio Alexander','08.00–14.00',T('Setelah 14.00, vaksinasi dilayani dokter umum yang bertugas.','After 14.00, vaccination is handled by the doctor on duty.'))}</div>`;
+  if(TELE_DAYS.includes(d)) h+=`<div class="sched-block"><h3>${VT} & ${T('Telemedicine BPJS','BPJS telemedicine')}</h3>${row('dr. Rio Alexander','08.00–14.00',T('Setelah 14.00, vaksinasi dilayani dokter vaksinator yang bertugas.','After 14.00, vaccination is handled by the vaccinating doctor on duty.'))}</div>`;
   else if(d===3) h+=`<div class="sched-block"><h3>${VT}</h3>${row('dr. Rio Alexander','08.00–20.00',T('Sekaligus praktik Poli Umum','Also on General Clinic duty'))}</div>`;
-  else h+=`<div class="sched-block"><h3>${VT}</h3><p class="fine">${T('Dilayani dokter umum yang bertugas, 08.00–20.00.','Handled by the doctor on duty, 08.00–20.00.')}</p></div>`;
+  else h+=`<div class="sched-block"><h3>${VT}</h3><p class="fine">${T('Dilayani dokter vaksinator yang bertugas, 08.00–20.00.','Handled by the vaccinating doctor on duty, 08.00–20.00.')}</p></div>`;
   return h+`</div>`;
 }
 
@@ -385,7 +385,7 @@ ${rel(['alur','layanan'])}`},
 <p>${T('Klinik melayani vaksinasi untuk perjalanan ke luar negeri, termasuk untuk jamaah <b>haji dan umroh</b>, dan menerbitkan <b>buku kuning / ICV</b> (International Certificate of Vaccination).','The clinic provides travel vaccinations, including for <b>Hajj and Umrah</b> pilgrims, and issues the <b>yellow book / ICV</b> (International Certificate of Vaccination).')}</p>
 <div class="card"><h2>${T('Vaksin yang tersedia','Available vaccines')}</h2><div class="chips">${[T('Meningitis','Meningitis'),'Polio','Yellow fever',T('Tifoid','Typhoid'),'Influenza'].map(x=>`<span>${x}</span>`).join('')}</div></div>
 <div class="stat"><div><b>${T('Senin–Sabtu','Mon–Sat')}</b><span>08.00–20.00 WIB</span></div><div><b>${T('Tanpa janji','Walk-in')}</b><span>${T('Tidak perlu membuat janji','No appointment needed')}</span></div></div>
-<div class="card"><h2>${T('Dokter yang melayani','Who vaccinates')}</h2><div class="sched-row"><div class="who">${avatar('dr. Rio Alexander')}<div>dr. Rio Alexander<em>${T('Sen, Sel, Kam, Jum 08.00–14.00 · Rabu 08.00–20.00','Mon, Tue, Thu, Fri 08.00–14.00 · Wed 08.00–20.00')}</em></div></div></div><p class="fine">${T('Di luar jam tersebut, vaksinasi dilayani dokter umum yang bertugas.','Outside these hours, the doctor on duty gives the vaccination.')}</p></div>
+<div class="card"><h2>${T('Dokter yang melayani','Who vaccinates')}</h2><div class="sched-row"><div class="who">${avatar('dr. Rio Alexander')}<div>dr. Rio Alexander<em>${T('Sen, Sel, Kam, Jum 08.00–14.00 · Rabu 08.00–20.00','Mon, Tue, Thu, Fri 08.00–14.00 · Wed 08.00–20.00')}</em></div></div></div><p class="fine">${T('Di luar jam tersebut, vaksinasi dilayani dokter vaksinator yang bertugas.','Outside these hours, vaccination is handled by the vaccinating doctor on duty.')}</p></div>
 <div class="note ok"><b>${T('Buku ICV jadi hari itu juga: datang sebelum 12.00 WIB','ICV book ready the same day: arrive before 12.00 WIB')}</b><p>${T('Buku kuning/ICV dapat dicetak di hari yang sama (cito) jika vaksinasi dilakukan sebelum pukul 12.00 WIB.','Your yellow book/ICV can be printed the same day if you are vaccinated before 12.00 WIB.')}</p></div>
 <p class="fine"><a href="#umum-jadwal">${T('Lihat dokter yang bertugas per hari','See who is on duty each day')}</a></p>
 <div class="note gold"><b>${T('Haji dan umroh','Hajj and Umrah')}</b><p>${T('Vaksinasi haji/umroh dilakukan maksimal 1 bulan sebelum keberangkatan.','Hajj/Umrah vaccination is given no later than 1 month before departure.')}</p></div>
